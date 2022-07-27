@@ -1,0 +1,7 @@
+spring:
+  Application:
+    Name: bulk_implementation
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka

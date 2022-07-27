@@ -1,0 +1,83 @@
+<h1 align="center" class="display-4 mb-5 cartt">My Cart</h1>
+
+<!--Cart Detail Table-->
+<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col" style="font-size: 17px">Photo</th>
+      <th scope="col" style="font-size: 17px">Name</th>
+      <th scope="col" style="font-size: 17px">Price</th>
+      <th scope="col" style="font-size: 17px">Quantity</th>
+      <th scope="col" style="font-size: 17px">Subtotal</th>
+      <th scope="col" style="font-size: 17px">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let productInOrder of productInOrders">
+      <th class="align-middle" scope="row">
+        <a routerLink="/product/{{ productInOrder.productId }}"><img height="100px"
+            src="{{ productInOrder.productIcon }}" alt="{{ productInOrder.productName }}" /></a>
+      </th>
+      <td class="align-middle">
+        <a style="font-size: 18px; padding-left:0 ; padding-right: 0;" routerLink="/product/{{ productInOrder.productId }}">{{
+          productInOrder.productName
+          }}</a>
+      </td>
+      <td style="font-size: 18px;" class="align-middle">{{ productInOrder.productPrice | currency:"INR"}}</td>
+
+      <td style="font-size: 15px;" class="align-middle">
+        <a (click)="minusOne(productInOrder)"><i class="fa fa-minus"></i></a>
+        <input min="1" id="{{ productInOrder.productId }}" [max]="productInOrder.productStock"
+          [(ngModel)]="productInOrder.count" (change)="onChange(productInOrder)" size="5" type="number" required
+          name="count" />
+        <a (click)="addOne(productInOrder)"> <i class="fa fa-plus"></i></a>
+      </td>
+
+      <td style="font-size: 18px;" class="align-middle">
+        {{ productInOrder.productPrice * productInOrder.count | currency:"INR" }}
+      </td>
+      <td class="align-middle">
+        <a style="font-size: 18px;" (click)="remove(productInOrder)" routerLink="./">Remove</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="cartdes" *ngIf="productInOrders?.length > 0; else empty">
+  <div align="center">
+    <select onchange="discheck()" *ngIf="currentUser" [(ngModel)]="selectedCoupon" name="Coupon"
+      class="form-control disdd">
+      <option selected value="">Select Coupon</option>
+      <option value="twenty">20% OFF</option>
+      <option *ngFor="let dep of coupon">
+        {{ dep.coupon }}
+      </option>
+    </select>
+  </div>
+  <br><br><br>
+  <h2 class="coupcl" *ngIf="currentUser"> <marquee class="marco" behavior="" direction="right">COUPON APPLIED : {{ selectedCoupon }}</marquee></h2>
+  <!--<h2>{{selectedCoupon}}</h2>-->
+  <br>
+  <h5 class="totalcl" *ngIf="!selectedCoupon" style="display: inline">
+    Total: {{ total | currency:"INR" }}
+  </h5>
+  <h5 class="totalcl" *ngIf="selectedCoupon" style="display: inline">
+    Total: {{ total - total * 0.2 | currency:"INR" }}
+  </h5>
+
+  <button (click)="checkout()" class="btn btn-warning btnco">
+    Checkout
+  </button>
+  <!--<button (click)="getCoupon()" class="btn btn-warning float-right">check</button> -->
+  <!--<select [(ngModel)]="selectedCoupon" name="Coupon" class="form-control" (ngModelchange)='selected($event)'>
+            <option>Select Coupon</option>
+            <option *ngFor="let dep of coupon">
+                {{dep.id}}
+            </option>
+    </select> -->
+</div>
+<ng-template #empty>
+  <h4 class="text-muted text-center emptyli">
+    Cart is empty. Go to get something! :)
+  </h4>
+</ng-template>

@@ -1,0 +1,87 @@
+<div class="sideimages">
+  <img
+    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnVybml0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    alt=""
+  />
+</div>
+<div class="float">
+  <h1 align="center" class="display-5 mb-5" style="color: #130f0f">Sign In</h1>
+
+  <div style="width: 40%; margin: 25px auto">
+    <div class="alert alert-danger message" *ngIf="isInvalid">
+      Invalid username and password.
+    </div>
+    <div class="alert alert-info message" *ngIf="isLogout">
+      You have been logged out.
+    </div>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label style="color: #130f0f">Email address</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required
+          autofocus
+          [(ngModel)]="model.username"
+          #email="ngModel"
+          autocomplete="email"
+        />
+        <div
+          [hidden]="email.valid || email.pristine"
+          class="alert alert-danger message"
+        >
+          Email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label style="color: #130f0f">Password</label>
+        <input
+          type="password"
+          class="form-control form-control-lg"
+          id="password"
+          name="password"
+          autocomplete="password"
+          placeholder="Password"
+          required
+          [(ngModel)]="model.password"
+          #password="ngModel"
+        />
+        <div
+          [hidden]="password.valid || password.pristine"
+          class="alert alert-danger message"
+        >
+          Password is required
+        </div>
+      </div>
+
+      <div class="form-group" style="color: #130f0f">
+        <div>
+          <span id="remember_me"
+            ><input
+              type="checkbox"
+              id="remember_me"
+              name="remember-me"
+              [(ngModel)]="model.remembered"
+            />
+            Remember Me</span
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button
+          [disabled]="!form.form.valid"
+          type="submit"
+          class="btn btn-lg btn-primary btn-block"
+        >
+          SIGN IN
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

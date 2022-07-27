@@ -1,0 +1,33 @@
+* {
+  overflow: hidden;
+}
+
+.sideimages img {
+  overflow: hidden;
+  position: fixed;
+  background-color: #fdca35;
+  width: 100%;
+  height: 800px;
+  opacity: 70%;
+}
+.float {
+  position: absolute;
+  top: 150px;
+  left: -300px;
+  width: 100%;
+}
+label {
+  font-size: 15px;
+}
+.form-control,
+.btn {
+  width: 60%;
+  border-radius: 20px;
+}
+
+.btn {
+  opacity: 120%;
+}
+h1 {
+  margin-left: -250px;
+}

@@ -1,0 +1,56 @@
+.disc {
+  width: 50%;
+  margin-left: 25%;
+  height: 20%;
+  padding: 10px;
+}
+.sele {
+  height: 30px;
+  font-size: 15px;
+  height: 10px;
+  padding: 10px;
+}
+.pa {
+  padding: 8px;
+  font-size: large;
+}
+.ssle {
+  width: 40%;
+  margin-top: -7px;
+}
+
+.cartt {
+  padding-top: 15px;
+}
+
+/* .colnamee {
+    font-size: 10%;
+  } */
+
+.emptyli {
+  font-size: 20px;
+  padding-top: 1%;
+}
+.disdd{
+  margin-top: 2.5%;
+  width: 60%;
+}
+.coupcl{
+  margin-left: 15%;
+}
+.totalcl{
+  margin-left: 15%;
+  font-size: 24px;
+}
+.btnco{
+margin-left: 50%;
+font-size: 18px;
+
+}
+.marco{
+  margin-left: 10%;
+  margin-right: 40%;
+}
+.cartdes{
+  margin-bottom: 5%;
+}

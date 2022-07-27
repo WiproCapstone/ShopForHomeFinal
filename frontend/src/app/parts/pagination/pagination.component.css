@@ -1,0 +1,22 @@
+.pagination li a {
+  border-radius: 15%;
+  margin: 7px;
+  margin-top: -10px;
+  padding-left: 23px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 23px;
+  font-size: 14px;
+}
+
+button {
+  font-size: 15px;
+  border-radius: 10%;
+  padding-left: 23px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 23px;
+  margin-top: -10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

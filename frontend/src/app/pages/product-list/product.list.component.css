@@ -1,0 +1,25 @@
+.isDisabled {
+    color: currentColor;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+  .desc{
+    height: 20px;
+  }
+  .btnemail, .btnemail:hover, .btnemail:focus, .btnemail:active {
+    text-decoration: none;
+    color: inherit;
+}
+.upbtn{
+  margin-left: 47%;
+  font-size: 18px;
+}
+.pdtcl{
+  /* margin-top: 2%; */
+  font-size: 40px;
+}
+.formcss{
+  /* text-decoration: none; */
+  border: 0px;
+}
